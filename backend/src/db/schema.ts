@@ -1,10 +1,10 @@
 import { pgTable, text, integer, varchar, char, uuid , timestamp, pgEnum} from "drizzle-orm/pg-core";
 
 export const timestamps = {
-  createdAt: timestamp("created_at")
+  createdAt: timestamp("createdAt")
     .notNull()
     .defaultNow(),
-  updatedAt: timestamp("updated_at")
+  updatedAt: timestamp("updatedAt")
     .notNull()
     .defaultNow()
     .$onUpdate(() => new Date()),
