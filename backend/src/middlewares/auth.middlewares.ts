@@ -57,10 +57,8 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
 
 export const checkAdmin = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const userId = req.user.id;
-        const existingUser = await getUserById({ id: userId });
-
-        if(!existingUser || existingUser.role !== "ADMIN"){
+        const user = req.user;
+        if(!user || user.role !== "ADMIN"){
             const resPayload : ApiResponse<null> = {
                 status: 403,
                 success: false,

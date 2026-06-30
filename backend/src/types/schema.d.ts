@@ -9,3 +9,5 @@ declare global {
       updatedAt: Date;
   } | undefined
 }
+
+export {};

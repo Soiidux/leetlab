@@ -1,6 +1,9 @@
 import express from "express";
 import config from "./backendConfig.js";
-import authRoutes from "./routes/auth.routes.js";
+
+import authRouter from "./routes/auth.routes.js";
+import problemRouter from "./routes/problem.routes.js";
+
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -15,7 +18,8 @@ app.get("/", (req, res) => {
 });
 
 //routes
-app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/problem", problemRouter);
 app.listen(config.PORT, () => {
     console.log(`Server is running on port ${config.PORT}`);
 });
