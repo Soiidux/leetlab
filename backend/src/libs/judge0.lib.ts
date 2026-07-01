@@ -1,13 +1,22 @@
 import config from "../backendConfig.js";
 import axios from "axios";
 
-export const getJudge0LangId = async (language: string) => {
+export const getJudge0LangId =  (language: string) => {
   const languageMap : Record<string, number> = {
     JAVA: 62,
     PYTHON: 71,
     JAVASCRIPT: 63,
   }
   return languageMap[language.toUpperCase()];
+};
+
+export const getJudge0LangName = (languageId: number) => {
+  const languageMap: Record<number, string> = {
+    62: "JAVA",
+    71: "PYTHON",
+    63: "JAVASCRIPT",
+  }
+  return languageMap[languageId];
 };
 
 export const submitBatch = async (submissions: any[]) => {

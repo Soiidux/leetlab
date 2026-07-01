@@ -3,6 +3,7 @@ import config from "./backendConfig.js";
 
 import authRouter from "./routes/auth.routes.js";
 import problemRouter from "./routes/problem.routes.js";
+import executeRouter from "./routes/execute.routes.js";
 
 import cookieParser from "cookie-parser";
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 //routes
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/problem", problemRouter);
+app.use("/api/v1/execute", executeRouter);
 app.listen(config.PORT, () => {
     console.log(`Server is running on port ${config.PORT}`);
 });
