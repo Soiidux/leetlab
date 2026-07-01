@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { getJudge0LangName, pollBatchResults, submitBatch } from "../libs/judge0.lib.js";
-import { createSubmission, getSubmission } from "../db/queries/submissions.queries.js";
+import { createSubmission, getSubmissionByIdQuery } from "../db/queries/submissions.queries.js";
 import { createTestCaseResult, getTestCaseResults } from "../db/queries/testCaseResults.queries.js";
 import { createProblemSolved } from "../db/queries/problemSolved.queries.js";
 
@@ -113,7 +113,7 @@ export const executeCode = async (req: Request, res: Response) => {
     }
 
     const returnData = {
-      submission: await getSubmission(submission.id),
+      submission: await getSubmissionByIdQuery(submission.id),
       testCaseResuls: await getTestCaseResults(submission.id)
     }
     const resPayload : ApiResponse<typeof returnData> = {

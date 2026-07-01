@@ -9,7 +9,19 @@ export const createSubmission = async (data) => {
 };
 
 //@ts-ignore
-export const getSubmission = async (submissionId) => {
+export const getSubmissionByIdQuery = async (submissionId) => {
   const result = await db.select().from(submissions).where(eq(submissions.id, submissionId));
   return result[0];
+};
+
+//@ts-ignore
+export const getSubmissionsQuery = async (userId) => {
+  const result = await db.select().from(submissions).where(eq(submissions.userId, userId));
+  return result;
+};
+
+//@ts-ignore
+export const getSubmissionsByProblemIdQuery = async (problemId) => {
+  const result = await db.select().from(submissions).where(eq(submissions.problemId, problemId));
+  return result;
 };
